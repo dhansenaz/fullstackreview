@@ -19,7 +19,7 @@ app.use(session({
     },
 }));
 
-app.get('/auth/callback',usrController.authentication);
+app.get('/auth/callback',userController.authentication);
 app.get('/api/profile', userController.profile);
 app.post('/api/logout', userController.logout)
 

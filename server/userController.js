@@ -19,19 +19,24 @@ authentication: (req,res) => {
             email: userInfoResponse.data.email
         };
         req.session.user = userData;
-        res.redirect('/api/profile')
+        res.redirect('/profile')
+    }).catch(error => {
+        // res.send(500).send("there was a problem")
+        res.redirect('/error');
+        console.log('error', error)
     })
 
 },
 
 profile: (req,res) => {
-
+    res.json({user: req.session.user})
 
 },
 
 logout: (req,res) => {
-
-
+    const name = req.session.user.name;
+    req.session.destroy();
+    res.json({message: `You have logged out, ${name}`})
 },
 
 
