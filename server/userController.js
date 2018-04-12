@@ -3,7 +3,7 @@ const axios = require('axios');
 module.exports = {
 
 authentication: (req,res) => {
-    axios.post(`/https://${process.env.REACT_APP_AUTH0_DOMAIN}/oauth/token`, {
+    axios.post(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/oauth/token`, {
         client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
         code: req.query.code,
         grant_type: 'authorization_code',

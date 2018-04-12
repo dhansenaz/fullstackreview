@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const massive = require('massive');
 
-const userController = require('./userCOntroller.js');
+const userController = require('./userController.js');
 
 const app = express();
 app.use(bodyParser.json());
@@ -13,7 +13,7 @@ const PORT = 4000;
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUnitialized: false,
+    saveUninitialized: false,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 14
     },
